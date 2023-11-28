@@ -28,6 +28,8 @@
 		83BE8E1E2B13D01200930CBC /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BE8E1D2B13D01200930CBC /* LogoView.swift */; };
 		83BE8E202B13D17A00930CBC /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BE8E1F2B13D17A00930CBC /* Modifiers.swift */; };
 		83BE8E222B14A63300930CBC /* Extenstions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BE8E212B14A63300930CBC /* Extenstions.swift */; };
+		83BE8E242B14AD2300930CBC /* ReelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BE8E232B14AD2300930CBC /* ReelView.swift */; };
+		83BE8E262B14C5B700930CBC /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BE8E252B14C5B700930CBC /* InfoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		83BE8E1D2B13D01200930CBC /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
 		83BE8E1F2B13D17A00930CBC /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		83BE8E212B14A63300930CBC /* Extenstions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extenstions.swift; sourceTree = "<group>"; };
+		83BE8E232B14AD2300930CBC /* ReelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReelView.swift; sourceTree = "<group>"; };
+		83BE8E252B14C5B700930CBC /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +124,8 @@
 			children = (
 				838694C02B0500260061D7DF /* ContentView.swift */,
 				83BE8E1D2B13D01200930CBC /* LogoView.swift */,
+				83BE8E232B14AD2300930CBC /* ReelView.swift */,
+				83BE8E252B14C5B700930CBC /* InfoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -338,8 +344,10 @@
 				838694C82B0500280061D7DF /* Persistence.swift in Sources */,
 				83BE8E222B14A63300930CBC /* Extenstions.swift in Sources */,
 				838694C12B0500260061D7DF /* ContentView.swift in Sources */,
+				83BE8E242B14AD2300930CBC /* ReelView.swift in Sources */,
 				838694BF2B0500260061D7DF /* Slot_MachineApp.swift in Sources */,
 				83BE8E202B13D17A00930CBC /* Modifiers.swift in Sources */,
+				83BE8E262B14C5B700930CBC /* InfoView.swift in Sources */,
 				838694CB2B0500280061D7DF /* Slot_Machine.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
