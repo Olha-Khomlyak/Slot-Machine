@@ -8,6 +8,62 @@ struct ContentView: View {
     // MARK:  - PROPERTIES
     
     @State private var showingInfoView: Bool = false
+    @State private var reels:Array = [0,1,2]
+    @State private var highScore: Int = 0
+    @State private var coins: Int = 100
+    @State private var betAmount: Int = 10
+    @State private var casinoChips20Opacity: Double = 0
+    @State private var casinoChips10Opacity: Double = 1
+    @State private var showingModal:Bool = false
+    
+    
+    let symbols = ["gfx-bell", "gfx-cherry", "gfx-coin", "gfx-grape", "gfx-seven", "gfx-strawberry"]
+    
+    
+    // MARK:  FUNCTIONS
+    
+    func spinReels(){
+        reels = reels.map({ _ in Int.random(in: 0...symbols.count - 1)})
+    }
+    
+    func checkWinning(){
+        if reels[0] == reels[1] && reels[0] == reels[2] && reels[1] == reels[2] {
+            // PLAYER WINS
+            playerWins()
+            // NEW HIGHSCORE
+            if coins > highScore {
+                newHighScore()
+            }
+        } else {
+            // PLAYER LOSES
+            playerLoses()
+        }
+    }
+    
+    func playerWins(){
+        coins += betAmount * 10
+    }
+    
+    func newHighScore() {
+        highScore = coins
+    }
+    
+    func playerLoses(){
+        if coins >= betAmount {
+            coins -= betAmount
+        }
+    }
+    
+    func activateBetAmount(bet amount: Int) {
+        betAmount = amount
+    }
+    
+    func isGameOver(){
+        if coins <= 0 {
+            // SHOW MODAL WINDOW
+            showingModal = true
+        }
+    }
     
     // MARK:  BODY
     var body: some View {
@@ -26,20 +82,20 @@ struct ContentView: View {
                 
                 HStack {
                     HStack{
-                        Text("Your\nscore".uppercased())
+                        Text("Your\nCoins".uppercased())
                             .scoreLableStyle()
                             .multilineTextAlignment(.trailing)
-                        Text("100")
+                        Text("\(coins)")
                             .scoreNumberStyle()
                             .modifier(ScoreNumberModifier())
                     }
                     .modifier(ScoreContainerModifier())
                     Spacer()
                     HStack{
-                        Text("200")
+                        Text("\(highScore)")
                             .scoreNumberStyle()
                             .modifier(ScoreNumberModifier())
-                        Text("Your\nscore".uppercased())
+                        Text("Your\nScore".uppercased())
                             .scoreLableStyle()
                             .multilineTextAlignment(.leading)
                     }
@@ -52,7 +108,7 @@ struct ContentView: View {
                     
                     ZStack{
                         ReelView()
-                        Image("gfx-bell")
+                        Image(symbols[reels[0]])
                             .resizable()
                             .modifier(ImageModifier())
                     }
@@ -60,7 +116,7 @@ struct ContentView: View {
                         // MARK:  REEL #2
                         ZStack{
                             ReelView()
-                            Image("gfx-seven")
+                            Image(symbols[reels[1]])
                                 .resizable()
                                 .modifier(ImageModifier())
                         }
@@ -68,7 +124,7 @@ struct ContentView: View {
                         // MARK:  REEL #3
                         ZStack{
                             ReelView()
-                            Image("gfx-cherry")
+                            Image(symbols[reels[2]])
                                 .resizable()
                                 .modifier(ImageModifier())
                         }
@@ -78,7 +134,9 @@ struct ContentView: View {
                     
                     // MARK:  SPIN BUTTON
                     Button(action: {
-                        print("Spin the reels")
+                        self.spinReels()
+                        self.checkWinning()
+                        self.isGameOver()
                     }, label: {
                         Image("gfx-spin")
                             .renderingMode(.original)
@@ -100,11 +158,13 @@ struct ContentView: View {
                     // MARK:  BET 20
                     HStack(alignment:.center,spacing: 10) {
                         Button(action: {
-                            print("Bet 20")
+                            activateBetAmount(bet: 20)
+                            casinoChips20Opacity = 1
+                            casinoChips10Opacity = 0
                         }, label: {
                             Text("20")
                                 .fontWeight(.heavy)
-                                .foregroundColor(.white)
+                                .foregroundColor(casinoChips20Opacity == 1 ? .yellow : .white)
                                 .modifier(BetNumberModifier())
                         })
                         .modifier(BetCapsuleModifier())
@@ -112,7 +172,7 @@ struct ContentView: View {
                         
                         Image("gfx-casino-chips")
                             .resizable()
-                            .opacity(0)
+                            .opacity(casinoChips20Opacity)
                             .modifier(CasinoChipModifier())
                     }
                     
@@ -121,14 +181,16 @@ struct ContentView: View {
                     HStack(alignment:.center,spacing: 10) {
                         Image("gfx-casino-chips")
                             .resizable()
-                            .opacity(1)
+                            .opacity(casinoChips10Opacity)
                             .modifier(CasinoChipModifier())
                         Button(action: {
-                            print("Bet 10")
+                            activateBetAmount(bet: 10)
+                            casinoChips20Opacity = 0
+                            casinoChips10Opacity = 1
                         }, label: {
                             Text("10")
                                 .fontWeight(.heavy)
-                                .foregroundColor(.yellow)
+                                .foregroundColor(casinoChips10Opacity == 1 ? .yellow : .white)
                                 .modifier(BetNumberModifier())
                         })
                         .modifier(BetCapsuleModifier())
@@ -158,6 +220,65 @@ struct ContentView: View {
             
             .padding()
             .frame(maxWidth:720)
+            .blur(radius: $showingModal.wrappedValue ? 5 : 0, opaque: false)
+            
+            // MARK:  POPUP
+            if $showingModal.wrappedValue {
+                ZStack {
+                    Color("ColorBlack").edgesIgnoringSafeArea(.all)
+                    // MODAL
+                    VStack (spacing:0){
+                        Text("GAME OVER")
+                            .font(.system(.title, design: .rounded))
+                            .fontWeight(.heavy)
+                            .padding()
+                            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: .infinity)
+                            .background(Color("ColorPink"))
+                            .foregroundColor(.white)
+                        
+                        Spacer()
+                        
+                        VStack(alignment: .center, spacing: 16) {
+                            Image("gfx-seven-reel")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(maxHeight:72)
+                            
+                            Text("Bad luck! You lost allof your coins. \nLet's play again.")
+                                .font(.system(.body,design: .rounded))
+                                .foregroundColor(.gray)
+                                .lineLimit(2)
+                                .multilineTextAlignment(.center)
+                                .layoutPriority(1)
+                            
+                            Button(action: {
+                                self.showingModal = false
+                                self.coins = 100
+                            }, label: {
+                                Text("New game".uppercased())
+                                    .font(.system(.body, design: .rounded))
+                                    .fontWeight(.semibold)
+                                    .accentColor(Color("ColorPink"))
+                                    .padding(.horizontal,12)
+                                    .padding(.vertical,8)
+                                    .frame(minWidth: 128)
+                                    .background {
+                                        Capsule()
+                                            .strokeBorder(lineWidth: 1.75)
+                                            .foregroundStyle(Color("ColorPink"))
+                                    }
+                            })
+                            
+                        }
+                        Spacer()
+                    }
+                    .frame(minWidth: 280, idealWidth: 280, maxWidth: 320, minHeight: 260, idealHeight: 280, maxHeight: 320, alignment: .center)
+                    .background(.white)
+                    .cornerRadius(20)
+                    .shadow(color: Color("ColorBlack"), radius: 6, x: 0, y: 8)
+                }
+            }
+            
         }
         .sheet(isPresented: $showingInfoView) {
             InfoView()
