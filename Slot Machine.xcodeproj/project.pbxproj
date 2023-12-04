@@ -25,6 +25,7 @@
 		838694D52B0500280061D7DF /* Slot_MachineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838694D42B0500280061D7DF /* Slot_MachineTests.swift */; };
 		838694DF2B0500280061D7DF /* Slot_MachineUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838694DE2B0500280061D7DF /* Slot_MachineUITests.swift */; };
 		838694E12B0500280061D7DF /* Slot_MachineUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838694E02B0500280061D7DF /* Slot_MachineUITestsLaunchTests.swift */; };
+		8387B82B2B1E029600D3F668 /* PlaySound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8387B82A2B1E029600D3F668 /* PlaySound.swift */; };
 		83BE8E1E2B13D01200930CBC /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BE8E1D2B13D01200930CBC /* LogoView.swift */; };
 		83BE8E202B13D17A00930CBC /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BE8E1F2B13D17A00930CBC /* Modifiers.swift */; };
 		83BE8E222B14A63300930CBC /* Extenstions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BE8E212B14A63300930CBC /* Extenstions.swift */; };
@@ -72,6 +73,7 @@
 		838694DA2B0500280061D7DF /* Slot MachineUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Slot MachineUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		838694DE2B0500280061D7DF /* Slot_MachineUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slot_MachineUITests.swift; sourceTree = "<group>"; };
 		838694E02B0500280061D7DF /* Slot_MachineUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slot_MachineUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		8387B82A2B1E029600D3F668 /* PlaySound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySound.swift; sourceTree = "<group>"; };
 		83BE8E1D2B13D01200930CBC /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
 		83BE8E1F2B13D17A00930CBC /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		83BE8E212B14A63300930CBC /* Extenstions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extenstions.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			children = (
 				83BE8E1F2B13D17A00930CBC /* Modifiers.swift */,
 				83BE8E212B14A63300930CBC /* Extenstions.swift */,
+				8387B82A2B1E029600D3F668 /* PlaySound.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				83BE8E222B14A63300930CBC /* Extenstions.swift in Sources */,
 				838694C12B0500260061D7DF /* ContentView.swift in Sources */,
 				83BE8E242B14AD2300930CBC /* ReelView.swift in Sources */,
+				8387B82B2B1E029600D3F668 /* PlaySound.swift in Sources */,
 				838694BF2B0500260061D7DF /* Slot_MachineApp.swift in Sources */,
 				83BE8E202B13D17A00930CBC /* Modifiers.swift in Sources */,
 				83BE8E262B14C5B700930CBC /* InfoView.swift in Sources */,

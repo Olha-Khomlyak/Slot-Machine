@@ -28,6 +28,7 @@ struct ContentView: View {
     
     func spinReels(){
         reels = reels.map({ _ in Int.random(in: 0...symbols.count - 1)})
+        playSound(sound: "spin", type: "mp3")
     }
     
     func checkWinning(){
@@ -37,6 +38,8 @@ struct ContentView: View {
             // NEW HIGHSCORE
             if coins > highScore {
                 newHighScore()
+            } else {
+                playSound(sound: "win", type: "mp3")
             }
         } else {
             // PLAYER LOSES
@@ -51,6 +54,7 @@ struct ContentView: View {
     func newHighScore() {
         highScore = coins
         UserDefaults.standard.set(highScore, forKey: "HighScore")
+        playSound(sound: "high-score", type: "mp3")
     }
     
     func playerLoses(){
@@ -61,12 +65,14 @@ struct ContentView: View {
     
     func activateBetAmount(bet amount: Int) {
         betAmount = amount
+        playSound(sound: "casino-chips", type: "mp3")
     }
     
     func isGameOver(){
         if coins <= 0 {
             // SHOW MODAL WINDOW
             showingModal = true
+            playSound(sound: "game-over", type: "mp3")
         }
     }
     
@@ -75,7 +81,7 @@ struct ContentView: View {
         highScore = 0
         coins = 100
         activateBetAmount(bet: 10)
-        
+        playSound(sound: "chimeout", type: "mp3")
     }
     
     // MARK:  BODY
@@ -129,6 +135,7 @@ struct ContentView: View {
                             .animation(.easeOut(duration: Double.random(in: 0.5...0.7)), value: animatingSymbol)
                             .onAppear(perform: {
                                 self.animatingSymbol.toggle()
+                                playSound(sound: "riseup", type: "mp3")
                             })
                     }
                     HStack(alignment:.center, spacing: 0){
