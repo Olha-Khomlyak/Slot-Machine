@@ -18,7 +18,7 @@ struct ButtonModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-            .accentColor(.white)
+            .foregroundColor(.white)
     }
 }
 

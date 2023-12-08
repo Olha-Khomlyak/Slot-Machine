@@ -26,6 +26,8 @@
 		838694DF2B0500280061D7DF /* Slot_MachineUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838694DE2B0500280061D7DF /* Slot_MachineUITests.swift */; };
 		838694E12B0500280061D7DF /* Slot_MachineUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838694E02B0500280061D7DF /* Slot_MachineUITestsLaunchTests.swift */; };
 		8387B82B2B1E029600D3F668 /* PlaySound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8387B82A2B1E029600D3F668 /* PlaySound.swift */; };
+		8387B82F2B23580A00D3F668 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8387B82E2B23580A00D3F668 /* AppDelegate.swift */; };
+		8387B8312B235CD500D3F668 /* SceneDelagate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8387B8302B235CD500D3F668 /* SceneDelagate.swift */; };
 		83BE8E1E2B13D01200930CBC /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BE8E1D2B13D01200930CBC /* LogoView.swift */; };
 		83BE8E202B13D17A00930CBC /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BE8E1F2B13D17A00930CBC /* Modifiers.swift */; };
 		83BE8E222B14A63300930CBC /* Extenstions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BE8E212B14A63300930CBC /* Extenstions.swift */; };
@@ -74,6 +76,9 @@
 		838694DE2B0500280061D7DF /* Slot_MachineUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slot_MachineUITests.swift; sourceTree = "<group>"; };
 		838694E02B0500280061D7DF /* Slot_MachineUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slot_MachineUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		8387B82A2B1E029600D3F668 /* PlaySound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySound.swift; sourceTree = "<group>"; };
+		8387B82D2B234F5600D3F668 /* Slot Machine.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Slot Machine.entitlements"; sourceTree = "<group>"; };
+		8387B82E2B23580A00D3F668 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8387B8302B235CD500D3F668 /* SceneDelagate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelagate.swift; sourceTree = "<group>"; };
 		83BE8E1D2B13D01200930CBC /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
 		83BE8E1F2B13D17A00930CBC /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		83BE8E212B14A63300930CBC /* Extenstions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extenstions.swift; sourceTree = "<group>"; };
@@ -165,6 +170,7 @@
 		838694BD2B0500260061D7DF /* Slot Machine */ = {
 			isa = PBXGroup;
 			children = (
+				8387B82D2B234F5600D3F668 /* Slot Machine.entitlements */,
 				834C7ADF2B050827006C3FBD /* Slot-Machine-Info.plist */,
 				834C7ADE2B05078A006C3FBD /* Helpers */,
 				834C7ADD2B050782006C3FBD /* Views */,
@@ -175,6 +181,8 @@
 				838694C92B0500280061D7DF /* Slot_Machine.xcdatamodeld */,
 				838694C42B0500280061D7DF /* Preview Content */,
 				834C7AE02B050A87006C3FBD /* LaunchScreen.storyboard */,
+				8387B82E2B23580A00D3F668 /* AppDelegate.swift */,
+				8387B8302B235CD500D3F668 /* SceneDelagate.swift */,
 			);
 			path = "Slot Machine";
 			sourceTree = "<group>";
@@ -343,12 +351,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8387B82F2B23580A00D3F668 /* AppDelegate.swift in Sources */,
 				83BE8E1E2B13D01200930CBC /* LogoView.swift in Sources */,
 				838694C82B0500280061D7DF /* Persistence.swift in Sources */,
 				83BE8E222B14A63300930CBC /* Extenstions.swift in Sources */,
 				838694C12B0500260061D7DF /* ContentView.swift in Sources */,
 				83BE8E242B14AD2300930CBC /* ReelView.swift in Sources */,
 				8387B82B2B1E029600D3F668 /* PlaySound.swift in Sources */,
+				8387B8312B235CD500D3F668 /* SceneDelagate.swift in Sources */,
 				838694BF2B0500260061D7DF /* Slot_MachineApp.swift in Sources */,
 				83BE8E202B13D17A00930CBC /* Modifiers.swift in Sources */,
 				83BE8E262B14C5B700930CBC /* InfoView.swift in Sources */,
@@ -508,6 +518,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Slot Machine/Slot Machine.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Slot Machine/Preview Content\"";
@@ -518,6 +529,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -526,6 +538,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.afacar.Slot-Machine";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -537,6 +552,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Slot Machine/Slot Machine.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Slot Machine/Preview Content\"";
@@ -547,6 +563,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -555,6 +572,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.afacar.Slot-Machine";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

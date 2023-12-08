@@ -9,6 +9,9 @@ import SwiftUI
 
 @main
 struct Slot_MachineApp: App {
+    
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
     let persistenceController = PersistenceController.shared
 
     var body: some Scene {
